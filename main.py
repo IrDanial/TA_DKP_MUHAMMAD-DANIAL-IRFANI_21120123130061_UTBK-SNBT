@@ -7,9 +7,9 @@ def handle_login(): # function
     email = email_entry.get() # variabel
     password = password_entry.get()
 
-    login_info = snbt(email, password) # OOP
-    if login_info.checkEmailPass(): #if-else
-        login_info.login()
+    loginfo = snbt(email, password) # OOP
+    if loginfo.checkEmailPass(): #if-else
+        loginfo.login()
     else:
         messagebox.showerror("Login Gagal", "Email atau Password salah!")
 
