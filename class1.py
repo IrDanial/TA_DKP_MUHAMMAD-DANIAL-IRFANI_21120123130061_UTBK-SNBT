@@ -83,7 +83,9 @@ class snbt:
             dropdown_menu2.grid(row=5, column=0, padx=5, pady=10, sticky="w")
             dropdown_menu3.grid(row=6, column=0, padx=5, pady=10, sticky="w")
 
-            login_button = tk.Button(resultWindow, text="Oke", command=lambda: self.result(dropdown_var1.get(), dropdown_var2.get(), dropdown_var3.get()))
+            login_button = tk.Button(resultWindow, text="Oke", command=lambda: self.result(dropdown_var1.get(), 
+                                                                                           dropdown_var2.get(), 
+                                                                                           dropdown_var3.get()))
             login_button.grid(row=7, column=0, padx=10, pady=10, sticky="w")
 
             close_button = tk.Button(resultWindow, text="Exit", command=resultWindow.destroy)
