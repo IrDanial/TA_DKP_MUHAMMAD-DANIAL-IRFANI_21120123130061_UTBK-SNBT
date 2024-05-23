@@ -20,7 +20,6 @@ class snbt:
                 }
         return data
 
-    # Method untuk pengecekan kesesuaian input dengan data di dictionary yang telah kita buat
     def checkEmailPass(self):
         for value in self.data: # for-loop
             if value == self.email:
@@ -30,80 +29,72 @@ class snbt:
                 else:
                     return False
 
-    # Method untuk proses login dalam console
     def login(self):
         get_data = self.checkEmailPass()
         if get_data:
-            # main window
             resultWindow = tk.Tk() # GUI
-            resultWindow.title("Portal SNPMB UTBK/SNBT 2023")
+            resultWindow.title("Portal SNPMB UTBK/SNBT 2023 UNDIP")
 
-            # set window size
             resultWindow.geometry("450x400")  # Width x Height
 
-            # label 1
             label1 = tk.Label(resultWindow, text="Selamat Datang, " + get_data['nama'])
             label1.grid(row=0, column=0, padx=10, pady=2, sticky="nw")
 
-            # label 2
-            label2 = tk.Label(resultWindow, text="Anda telah terdaftar sebagai " + get_data['role'] + " UTBK/SNBT 2023")
+            label2 = tk.Label(resultWindow, text="Anda telah terdaftar sebagai " + get_data['role'] + " UTBK/SNBT 2023 Universitas Diponegoro")
             label2.grid(row=1, column=0, padx=10, pady=2, sticky="nw")
 
-            # label 3
             label3 = tk.Label(resultWindow, text="Anda masuk sebagai: " + self.email)
             label3.grid(row=2, column=0, padx=10, pady=2, sticky="nw")
 
-            # label 4
             label4 = tk.Label(resultWindow, text="Silahkan memilih Program studi:")
             label4.grid(row=3, column=0, padx=10, pady=2, sticky="nw")
 
-            # Create a variable to hold the selected option
             dropdown_var1 = tk.StringVar(resultWindow)
             dropdown_var2 = tk.StringVar(resultWindow)
             dropdown_var3 = tk.StringVar(resultWindow)
 
-            # Define the list of options
-            options1 = ["Option 1", "Option 2", "Option 3", "Option 4"]
-            options2 = ["Option 5", "Option 6", "Option 7", "Option 8"]
-            options3 = ["Option 9", "Option 10", "Option 11", "Option 12"]
+            options1 = ["Arsitektur (Saintek)", "Teknik Sipil (Saintek)", "Perencanaan Wilayah Kota (Saintek)", "Teknik Geologi (Saintek)",
+                        "Teknik Komputer (Saintek)", "Teknik Geodesi (Saintek)", "Teknik Perkapalan (Saintek)", "Teknik Lingkungan (Saintek)", 
+                        "Teknik Elektro (Saintek)", "Teknik Kimia (Saintek)", "Teknik Mesin (Saintek)", "Teknik Industri (Saintek)",
+                        "Kedokteran (Saintek)", "Farmasi (Saintek)", "Kedokteran Gigi (Saintek)", "Keperawatan (Saintek)", "Gizi (Saintek)"]
+            
+            options2 = ["Administrasi Bisnis (Soshum)", "Administrasi Publik (Soshum)", "Hubungan Internasional (Soshum)", 
+                        "Ilmu Pemerintahan (Soshum)", "Manajemen (Soshum)", "Ilmu Ekonomi (Soshum)", 
+                        "Ekonomi Islam (Soshum)", "Akuntansi (Soshum)", "Ilmu Hukum (Soshum)"]
+            
+            options3 = ["Teknik Infrastruktur Sipil dan Arsitektur (Vokasi)", "Perencanaan Tata Ruang dan Pertanahan (Vokasi)", "Akuntansi Perpajakan (Vokasi)", "Manajemen dan Administrasi Logistik (Vokasi)",
+                        "Teknologi Rekayasa Kimia Industri (Vokasi)", "Rekayasa Perancangan Mekanik (Vokasi)", "Teknologi Rekayasa Otomasi (Vokasi)",
+                        "Teknologi Rekayasa Konstruksi Perkapalan (Vokasi)", "Teknik Listrik Industri (Vokasi)", "Bahasa Asing Terapan (Vokasi)",
+                        "Informasi dan Humas (Vokasi)"]
 
-            # Set the default value of the dropdown
             dropdown_var1.set(options1[0])
             dropdown_var2.set(options2[0])
             dropdown_var3.set(options3[0])
 
-            # Create the OptionMenu widget with colors and width
             dropdown_menu1 = tk.OptionMenu(resultWindow, dropdown_var1, *options1)
-            dropdown_menu1.config(width=20, highlightthickness=1, highlightbackground="blue")
+            dropdown_menu1.config(width=40, highlightthickness=1, highlightbackground="blue")
             dropdown_menu2 = tk.OptionMenu(resultWindow, dropdown_var2, *options2)
-            dropdown_menu2.config(width=20, highlightthickness=1, highlightbackground="green")
+            dropdown_menu2.config(width=40, highlightthickness=1, highlightbackground="green")
             dropdown_menu3 = tk.OptionMenu(resultWindow, dropdown_var3, *options3)
-            dropdown_menu3.config(width=20, highlightthickness=1, highlightbackground="yellow")
+            dropdown_menu3.config(width=40, highlightthickness=1, highlightbackground="yellow")
 
-            # Position the OptionMenu widget in the window
             dropdown_menu1.grid(row=4, column=0, padx=5, pady=10, sticky="w")
             dropdown_menu2.grid(row=5, column=0, padx=5, pady=10, sticky="w")
             dropdown_menu3.grid(row=6, column=0, padx=5, pady=10, sticky="w")
 
-            # login button
             login_button = tk.Button(resultWindow, text="Oke", command=lambda: self.result(dropdown_var1.get(), dropdown_var2.get(), dropdown_var3.get()))
             login_button.grid(row=7, column=0, padx=10, pady=10, sticky="w")
 
-            # Create a button to close the window
             close_button = tk.Button(resultWindow, text="Exit", command=resultWindow.destroy)
             close_button.grid(row=8, column=0, padx=10, pady=10, sticky="w")
 
-            # Run the main event loop
             resultWindow.mainloop()
 
-    # when oke button pressed
     def result(self, pil1, pil2, pil3):
         get_data = self.checkEmailPass()
 
-        # gui
         resultWindow2 = tk.Tk()
 
-        # gui declaration
         resultWindow2.title("Portal SNPMB UTBK/SNBT 2023")
         resultWindow2.geometry("450x400")
 
