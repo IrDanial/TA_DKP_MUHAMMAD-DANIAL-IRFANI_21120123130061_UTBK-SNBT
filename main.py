@@ -23,7 +23,7 @@ email_entry.grid(row=0, column=1, padx=10, pady=5)
 
 password_label = tk.Label(loginWindow, text="Password:")
 password_label.grid(row=1, column=0, padx=10, pady=5, sticky="e")
-password_entry = tk.Entry(loginWindow, show="*", width=30)
+password_entry = tk.Entry(loginWindow, width=30)
 password_entry.grid(row=1, column=1, padx=10, pady=5)
 
 login_button = tk.Button(loginWindow, text="Login", command=handle_login)
