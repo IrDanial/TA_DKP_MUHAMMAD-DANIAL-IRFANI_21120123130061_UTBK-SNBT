@@ -1,6 +1,5 @@
 # variabel, function-method, if-else, for-loop, OOP, GUI
 import tkinter as tk
-from tkinter import messagebox
 from class1 import snbt
 
 def handle_login(): # function
@@ -14,7 +13,7 @@ def handle_login(): # function
 loginWindow = tk.Tk() # GUI
 loginWindow.title("Portal SNPMB UTBK/SNBT 2023 UNDIP")
 
-loginWindow.geometry("450x300")  # Width x Height
+loginWindow.geometry("450x300")
 
 email_label = tk.Label(loginWindow, text="Email:")
 email_label.grid(row=0, column=0, padx=10, pady=5, sticky="e")

@@ -36,7 +36,7 @@ class snbt:
             resultWindow = tk.Tk() # GUI
             resultWindow.title("Portal SNPMB UTBK/SNBT 2023 UNDIP")
 
-            resultWindow.geometry("450x400")  # Width x Height
+            resultWindow.geometry("450x400")
 
             label1 = tk.Label(resultWindow, text="Selamat Datang, " + get_data['nama'])
             label1.grid(row=0, column=0, padx=10, pady=2, sticky="nw")
