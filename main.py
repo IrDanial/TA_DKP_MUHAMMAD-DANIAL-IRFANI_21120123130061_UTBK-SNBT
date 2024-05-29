@@ -1,6 +1,7 @@
 # variabel, function-method, if-else, for-loop, OOP, GUI
 import tkinter as tk
 from class1 import snbt
+from tkinter import messagebox
 
 def handle_login(): # function
     email = email_entry.get() # variabel
@@ -9,6 +10,8 @@ def handle_login(): # function
     loginfo = snbt(email, password) # OOP
     if loginfo.checkEmailPass(): #if-else
         loginfo.login()
+    else:
+        messagebox.showerror("Alert!", "Email atau Password salah")
 
 loginWindow = tk.Tk() # GUI
 loginWindow.title("Portal SNPMB UTBK/SNBT 2023 UNDIP")
